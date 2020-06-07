@@ -1,7 +1,5 @@
-﻿#pragma once
-
+﻿#ifndef NRPD_H
+#define NRPD_H
 #include <iostream>
-#ifdef WIN32
-#include "httplib.h"
-#include <Windows.h>
-#endif
+#include "httphelper.h"
+#endif // NRPD_H
