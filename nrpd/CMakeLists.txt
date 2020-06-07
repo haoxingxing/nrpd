@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
 aux_source_directory(. src)
-add_executable (nrpd ${src})
+add_executable (nrpd ${src} "v1/Handler.h" "v1/Handler.cpp" "v1/plastebin.h" "v1/plastebin.cpp")
 set_target_properties(nrpd PROPERTIES DEBUG_POSTFIX "d") 
 set_target_properties(nrpd PROPERTIES OUTPUT_NAME "nrpd.${FILENAME_SUFFIX}")
 if (UNIX)

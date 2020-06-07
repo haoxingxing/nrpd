@@ -2,12 +2,13 @@
 #define HTTPHELPER_H
 #include "../configs.h"
 #include "lib/httplib.h"
+#include <iostream>
 #ifdef WIN32
 #include "Windows.h"
 #endif
 namespace httphelper
 {
-	std::string dump_headers(const httplib::Headers& headers) {
+	inline std::string dump_headers(const httplib::Headers& headers) {
 		std::string s;
 		char buf[BUFSIZ];
 
@@ -20,7 +21,7 @@ namespace httphelper
 		return s;
 	}
 
-	std::string dump_multipart_files(const httplib::MultipartFormDataMap& files) {
+	inline std::string dump_multipart_files(const httplib::MultipartFormDataMap& files) {
 		std::string s;
 		char buf[BUFSIZ];
 
@@ -57,7 +58,7 @@ namespace httphelper
 			DEBUG
 		};
 
-		std::string log(const httplib::Request& req, const httplib::Response& res) {
+		inline std::string log(const httplib::Request& req, const httplib::Response& res) {
 			std::string s;
 			char buf[BUFSIZ];
 
@@ -90,7 +91,8 @@ namespace httphelper
 
 			return s;
 		}
-		void logreq(const httplib::Request& req, const httplib::Response& res, Level l = INFO)
+
+		inline void logreq(const httplib::Request& req, const httplib::Response& res, Level l = INFO)
 		{
 			if (l > WARN) {
 				std::cout << "[" << req.remote_addr << "]" << ":" << req.remote_port <<  " " << req.version << " <" << req.method << ">" << req.path << " *" << res.status <<"\n";
@@ -100,7 +102,8 @@ namespace httphelper
 				}
 			}
 		}
-		void log_handler(const httplib::Request& req, const httplib::Response& res)
+
+		inline void log_handler(const httplib::Request& req, const httplib::Response& res)
 		{
 			logreq(req,res,LOG_LEVEL);
 		}
