@@ -34,6 +34,7 @@ ELSEIF (APPLE)
     set(PLAT "macos")
 ELSEIF (UNIX)  
     set(PLAT "linux")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 ENDIF () 
 
 set(FILENAME_SUFFIX "${PLAT}")

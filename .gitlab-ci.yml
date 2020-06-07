@@ -7,7 +7,7 @@ build:
     - apt update && apt -y install sudo git make autoconf cmake build-essential
   script:
     - cmake .
-    - make
+    - make -lpthread
   artifacts:
     paths:
-      - build/*
+      - .
